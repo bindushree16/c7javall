@@ -1,0 +1,691 @@
+resources:
+  - name: gitrepo_res
+    type: gitRepo
+    repoPath: bindushree16/c7javall
+    configuration:
+      integrationName: git
+      branches:
+        except: random
+    initialVersion:
+      sha: master
+  - name: file_res
+    type: file
+    fileLocation: https://github.com/ankul-shippable/sample_java/blob/master/shippable.yml
+    configuration:
+      integrationName: git
+    initialVersion:
+      fileName: shippable.yml
+      fileDtTm: random_value
+  - name: image_res
+    type: image
+    imageName: "library/nginx"
+    configuration:
+      integrationName: docker
+    initialVersion:
+      imageTag: latest
+pipelines:
+  - name: pipe_1
+    setup:
+      runtime: onHost
+    steps:
+      - name: step1_A
+        type: bash
+        configuration:
+          affinityGroup: test_group
+        setup:
+          runtime:
+            type: image
+            image:
+              auto:
+                language: java
+                versions:
+                  - 1
+            custom:
+              name: test
+              tag:  test
+              options: test
+        requires:
+          integrations:
+            - docker
+          resources:
+            - image_res
+        triggeredBy:
+          resources:
+            - gitrepo_res
+        execution:
+          onExecute:
+            - echo "executing..."
+        outputResources:
+          - file_res
+      - name: step1_B2
+        type: bash
+        configuration:
+          affinityGroup: test_group
+        setup:
+          runtime:
+            type: image
+            image:
+              auto:
+                language: java
+                versions:
+                  - 1
+            custom:
+              name: test
+              tag:  test
+              options: test
+        triggeredBy:
+          resources:
+            - file_res
+        execution:
+          onExecute:
+            - echo "executing..."
+      - name: step1_C
+        type: bash
+        configuration:
+          affinityGroup: test_group
+        setup:
+          runtime:
+            type: image
+            image:
+              auto:
+                language: java
+                versions:
+                  - 1
+            custom:
+              name: test
+              tag:  test
+              options: test
+        triggeredBy:
+          steps:
+            - step1_A
+        execution:
+          onExecute:
+            - echo "executing..."
+  - name: pipe_2
+    setup:
+      runtime: onHost
+    steps:
+      - name: step2
+        type: bash
+        configuration:
+          affinityGroup: test_group
+        setup:
+          runtime:
+            type: image
+            image:
+              auto:
+                language: java
+                versions:
+                  - 1
+            custom:
+              name: test
+              tag:  test
+              options: test
+        triggeredBy:
+          resources:
+            - gitrepo_res
+        execution:
+          onExecute:
+            - echo "executing..."
+        outputResources:
+          - file_res
+  - name: pipe_3
+    setup:
+      runtime: onHost
+    steps:
+      - name: step3
+        type: bash
+        configuration:
+          affinityGroup: test_group
+        setup:
+          runtime:
+            type: image
+            image:
+              auto:
+                language: java
+                versions:
+                  - 1
+            custom:
+              name: test
+              tag:  test
+              options: test
+        triggeredBy:
+          resources:
+            - gitrepo_res
+        execution:
+          onExecute:
+            - echo "executing..."
+        outputResources:
+          - file_res
+  - name: pipe_4
+    setup:
+      runtime: onHost
+    steps:
+      - name: step4
+        type: bash
+        configuration:
+          affinityGroup: test_group
+        setup:
+          runtime:
+            type: image
+            image:
+              auto:
+                language: java
+                versions:
+                  - 1
+            custom:
+              name: test
+              tag:  test
+              options: test
+        triggeredBy:
+          resources:
+            - gitrepo_res
+        execution:
+          onExecute:
+            - echo "executing..."
+        outputResources:
+          - file_res
+  - name: pipe_5
+    setup:
+      runtime: onHost
+    steps:
+      - name: step5
+        type: bash
+        configuration:
+          affinityGroup: test_group
+        setup:
+          runtime:
+            type: image
+            image:
+              auto:
+                language: java
+                versions:
+                  - 1
+            custom:
+              name: test
+              tag:  test
+              options: test
+        triggeredBy:
+          resources:
+            - gitrepo_res
+        execution:
+          onExecute:
+            - echo "executing..."
+        outputResources:
+          - file_res
+  - name: pipe_6
+    setup:
+      runtime: onHost
+    steps:
+      - name: step6
+        type: bash
+        configuration:
+          affinityGroup: test_group
+        setup:
+          runtime:
+            type: image
+            image:
+              auto:
+                language: java
+                versions:
+                  - 1
+            custom:
+              name: test
+              tag:  test
+              options: test
+        triggeredBy:
+          resources:
+            - gitrepo_res
+        execution:
+          onExecute:
+            - echo "executing..."
+        outputResources:
+          - file_res
+  - name: pipe_7
+    setup:
+      runtime: onHost
+    steps:
+      - name: step7
+        type: bash
+        configuration:
+          affinityGroup: test_group
+        setup:
+          runtime:
+            type: image
+            image:
+              auto:
+                language: java
+                versions:
+                  - 1
+            custom:
+              name: test
+              tag:  test
+              options: test
+        triggeredBy:
+          resources:
+            - gitrepo_res
+        execution:
+          onExecute:
+            - echo "executing..."
+        outputResources:
+          - file_res
+  - name: pipe_8
+    setup:
+      runtime: onHost
+    steps:
+      - name: step8
+        type: bash
+        configuration:
+          affinityGroup: test_group
+        setup:
+          runtime:
+            type: image
+            image:
+              auto:
+                language: java
+                versions:
+                  - 1
+            custom:
+              name: test
+              tag:  test
+              options: test
+        triggeredBy:
+          resources:
+            - gitrepo_res
+        execution:
+          onExecute:
+            - echo "executing..."
+        outputResources:
+          - file_res
+  - name: pipe_9
+    setup:
+      runtime: onHost
+    steps:
+      - name: step9
+        type: bash
+        configuration:
+          affinityGroup: test_group
+        setup:
+          runtime:
+            type: image
+            image:
+              auto:
+                language: java
+                versions:
+                  - 1
+            custom:
+              name: test
+              tag:  test
+              options: test
+        triggeredBy:
+          resources:
+            - gitrepo_res
+        execution:
+          onExecute:
+            - echo "executing..."
+        outputResources:
+          - file_res
+  - name: pipe_10
+    setup:
+      runtime: onHost
+    steps:
+      - name: step10
+        type: bash
+        configuration:
+          affinityGroup: test_group
+        setup:
+          runtime:
+            type: image
+            image:
+              auto:
+                language: java
+                versions:
+                  - 1
+            custom:
+              name: test
+              tag:  test
+              options: test
+        triggeredBy:
+          resources:
+            - gitrepo_res
+        execution:
+          onExecute:
+            - echo "executing..."
+        outputResources:
+          - file_res
+  - name: pipe_11
+    setup:
+      runtime: onHost
+    steps:
+      - name: step11
+        type: bash
+        configuration:
+          affinityGroup: test_group
+        setup:
+          runtime:
+            type: image
+            image:
+              auto:
+                language: java
+                versions:
+                  - 1
+            custom:
+              name: test
+              tag:  test
+              options: test
+        triggeredBy:
+          resources:
+            - gitrepo_res
+        execution:
+          onExecute:
+            - echo "executing..."
+        outputResources:
+          - file_res
+  - name: pipe_12
+    setup:
+      runtime: onHost
+    steps:
+      - name: step12
+        type: bash
+        configuration:
+          affinityGroup: test_group
+        setup:
+          runtime:
+            type: image
+            image:
+              auto:
+                language: java
+                versions:
+                  - 1
+            custom:
+              name: test
+              tag:  test
+              options: test
+        triggeredBy:
+          resources:
+            - gitrepo_res
+        execution:
+          onExecute:
+            - echo "executing..."
+        outputResources:
+          - file_res
+  - name: pipe_13
+    setup:
+      runtime: onHost
+    steps:
+      - name: step13
+        type: bash
+        configuration:
+          affinityGroup: test_group
+        setup:
+          runtime:
+            type: image
+            image:
+              auto:
+                language: java
+                versions:
+                  - 1
+            custom:
+              name: test
+              tag:  test
+              options: test
+        triggeredBy:
+          resources:
+            - gitrepo_res
+        execution:
+          onExecute:
+            - echo "executing..."
+        outputResources:
+          - file_res
+  - name: pipe_14
+    setup:
+      runtime: onHost
+    steps:
+      - name: step14
+        type: bash
+        configuration:
+          affinityGroup: test_group
+        setup:
+          runtime:
+            type: image
+            image:
+              auto:
+                language: java
+                versions:
+                  - 1
+            custom:
+              name: test
+              tag:  test
+              options: test
+        triggeredBy:
+          resources:
+            - gitrepo_res
+        execution:
+          onExecute:
+            - echo "executing..."
+        outputResources:
+          - file_res
+  - name: pipe_15
+    setup:
+      runtime: onHost
+    steps:
+      - name: step15
+        type: bash
+        configuration:
+          affinityGroup: test_group
+        setup:
+          runtime:
+            type: image
+            image:
+              auto:
+                language: java
+                versions:
+                  - 1
+            custom:
+              name: test
+              tag:  test
+              options: test
+        triggeredBy:
+          resources:
+            - gitrepo_res
+        execution:
+          onExecute:
+            - echo "executing..."
+        outputResources:
+          - file_res
+  - name: pipe_16
+    setup:
+      runtime: onHost
+    steps:
+      - name: step16
+        type: bash
+        configuration:
+          affinityGroup: test_group
+        setup:
+          runtime:
+            type: image
+            image:
+              auto:
+                language: java
+                versions:
+                  - 1
+            custom:
+              name: test
+              tag:  test
+              options: test
+        triggeredBy:
+          resources:
+            - gitrepo_res
+        execution:
+          onExecute:
+            - echo "executing..."
+        outputResources:
+          - file_res
+  - name: pipe_17
+    setup:
+      runtime: onHost
+    steps:
+      - name: step17
+        type: bash
+        configuration:
+          affinityGroup: test_group
+        setup:
+          runtime:
+            type: image
+            image:
+              auto:
+                language: java
+                versions:
+                  - 1
+            custom:
+              name: test
+              tag:  test
+              options: test
+        triggeredBy:
+          resources:
+            - gitrepo_res
+        execution:
+          onExecute:
+            - echo "executing..."
+        outputResources:
+          - file_res
+  - name: pipe_18
+    setup:
+      runtime: onHost
+    steps:
+      - name: step18
+        type: bash
+        configuration:
+          affinityGroup: test_group
+        setup:
+          runtime:
+            type: image
+            image:
+              auto:
+                language: java
+                versions:
+                  - 1
+            custom:
+              name: test
+              tag:  test
+              options: test
+        triggeredBy:
+          resources:
+            - gitrepo_res
+        execution:
+          onExecute:
+            - echo "executing..."
+        outputResources:
+          - file_res
+  - name: pipe_19
+    setup:
+      runtime: onHost
+    steps:
+      - name: step19
+        type: bash
+        configuration:
+          affinityGroup: test_group
+        setup:
+          runtime:
+            type: image
+            image:
+              auto:
+                language: java
+                versions:
+                  - 1
+            custom:
+              name: test
+              tag:  test
+              options: test
+        triggeredBy:
+          resources:
+            - gitrepo_res
+        execution:
+          onExecute:
+            - echo "executing..."
+        outputResources:
+          - file_res
+  - name: pipe_20
+    setup:
+      runtime: onHost
+    steps:
+      - name: step20
+        type: bash
+        configuration:
+          affinityGroup: test_group
+        setup:
+          runtime:
+            type: image
+            image:
+              auto:
+                language: java
+                versions:
+                  - 1
+            custom:
+              name: test
+              tag:  test
+              options: test
+        triggeredBy:
+          resources:
+            - gitrepo_res
+        execution:
+          onExecute:
+            - echo "executing..."
+        outputResources:
+          - file_res
+  - name: pipe_21
+    setup:
+      runtime: onHost
+    steps:
+      - name: step21
+        type: bash
+        configuration:
+          affinityGroup: test_group
+        setup:
+          runtime:
+            type: image
+            image:
+              auto:
+                language: java
+                versions:
+                  - 1
+            custom:
+              name: test
+              tag:  test
+              options: test
+        triggeredBy:
+          resources:
+            - gitrepo_res
+        execution:
+          onExecute:
+            - echo "executing..."
+        outputResources:
+          - file_res
+  - name: pipe_22
+    setup:
+      runtime: onHost
+    steps:
+      - name: step22
+        type: bash
+        configuration:
+          affinityGroup: test_group
+        setup:
+          runtime:
+            type: image
+            image:
+              auto:
+                language: java
+                versions:
+                  - 1
+            custom:
+              name: test
+              tag:  test
+              options: test
+        triggeredBy:
+          resources:
+            - gitrepo_res
+        execution:
+          onExecute:
+            - echo "executing..."
+        outputResources:
+          - file_res
